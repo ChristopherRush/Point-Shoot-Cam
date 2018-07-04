@@ -375,7 +375,6 @@ buttons = [
 
 
 # Assorted utility functions -----------------------------------------------
-buttupdate()
 
 def setFxMode(n):
     global fxMode
@@ -628,7 +627,6 @@ while (True):
     # Process touchscreen input
     while True:
         battRefresh()
-        buttupdate()
         for event in pygame.event.get():
             if (event.type is MOUSEBUTTONDOWN):
                 pos = pygame.mouse.get_pos()
