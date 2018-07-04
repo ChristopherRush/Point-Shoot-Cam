@@ -128,14 +128,13 @@ class Button:
 # These are defined before globals because they're referenced by items in
 # the global buttons[] list.
 
-def battRefresh():
+def battRefresh(batt):
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 50:
         batt = '4'
     elif value < 50:
         batt = '1'
-    print batt
-
+        return batt
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
     global isoMode
     setIsoMode((isoMode + n) % len(isoData))
@@ -186,7 +185,6 @@ def doneCallback():  # Exit settings
         settingMode = screenMode
         saveSettings()
     screenMode = 3  # Switch back to viewfinder mode
-    battRefresh()
 
 
 def imageCallback(n):  # Pass 1 (next image), -1 (prev image) or 0 (delete)
@@ -538,7 +536,8 @@ while (True):
 
     # Process touchscreen input
     while True:
-        battRefresh(batt)
+        batt = battRefresh(batt)
+        print batt
         buttons = [
         # Screen mode 0 is photo playback
             [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
@@ -587,12 +586,12 @@ while (True):
             Button((0, 0, 80, 52), bg='prev', cb=settingCallback, value=-1),
             Button((240, 0, 80, 52), bg='next', cb=settingCallback, value=1),
             Button((2, 60, 100, 120), bg='radio3-1', fg='size-l',
-                    cb=sizeModeCallback, value=0),
-                    Button((110, 60, 100, 120), bg='radio3-0', fg='size-m',
-                    cb=sizeModeCallback, value=1),
-                    Button((218, 60, 100, 120), bg='radio3-0', fg='size-s',
-                    cb=sizeModeCallback, value=2),
-                    Button((0, 10, 320, 29), bg='size')],
+                cb=sizeModeCallback, value=0),
+            Button((110, 60, 100, 120), bg='radio3-0', fg='size-m',
+                cb=sizeModeCallback, value=1),
+            Button((218, 60, 100, 120), bg='radio3-0', fg='size-s',
+                cb=sizeModeCallback, value=2),
+            Button((0, 10, 320, 29), bg='size')],
 
         # Screen mode 6 is graphic effect
             [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
