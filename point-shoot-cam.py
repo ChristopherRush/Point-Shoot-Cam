@@ -538,7 +538,7 @@ while (True):
 
     # Process touchscreen input
     while True:
-        battRefresh()
+        battRefresh(batt)
         buttons = [
         # Screen mode 0 is photo playback
             [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
@@ -575,12 +575,12 @@ while (True):
             Button((0, 0, 80, 52), bg='prev', cb=settingCallback, value=-1),
             Button((240, 0, 80, 52), bg='next', cb=settingCallback, value=1),
             Button((2, 60, 100, 120), bg='radio3-1', fg='store-folder',
-                    cb=storeModeCallback, value=0),
-                Button((110, 60, 100, 120), bg='radio3-0', fg='store-boot',
-                    cb=storeModeCallback, value=1),
-                    Button((218, 60, 100, 120), bg='radio3-0', fg='store-dropbox',
-                    cb=storeModeCallback, value=2),
-                    Button((0, 10, 320, 35), bg='storage')],
+                cb=storeModeCallback, value=0),
+            Button((110, 60, 100, 120), bg='radio3-0', fg='store-boot',
+                cb=storeModeCallback, value=1),
+            Button((218, 60, 100, 120), bg='radio3-0', fg='store-dropbox',
+                cb=storeModeCallback, value=2),
+            Button((0, 10, 320, 35), bg='storage')],
 
         # Screen mode 5 is size settings
             [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
