@@ -132,6 +132,8 @@ def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 50:
         batt = '4'
+    elif value < 50:
+        batt = '1'
 
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
     global isoMode
