@@ -313,7 +313,7 @@ buttons = [
     [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
      Button((0, 0, 80, 52), bg='prev', cb=settingCallback, value=-1),
      Button((240, 0, 80, 52), bg='next', cb=settingCallback, value=1),
-     Button((2, 155, 0, 79), bg='radio3-1', fg='store-folder',
+     Button((2, 60, 100, 120), bg='radio3-1', fg='store-folder',
             cb=storeModeCallback, value=0),
      Button((110, 60, 100, 120), bg='radio3-0', fg='store-boot',
             cb=storeModeCallback, value=1),
