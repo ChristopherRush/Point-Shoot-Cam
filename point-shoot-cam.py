@@ -303,7 +303,7 @@ buttons = [
     # Screen mode 3 is viewfinder / snapshot
     [Button((0, 188, 156, 52), bg='gear', cb=viewCallback, value=0),
      Button((164, 188, 156, 52), bg='play', cb=viewCallback, value=1),
-     Button((10, 0, 30, 50), bg='batt', value=3),
+     Button((2, 2, 30, 50), bg='batt', value=3),
      Button((0, 0, 320, 240), cb=viewCallback, value=2),
      Button((88, 51, 157, 102)),  # 'Working' label (when enabled)
      Button((148, 110, 22, 22))],  # Spinner (when enabled)
