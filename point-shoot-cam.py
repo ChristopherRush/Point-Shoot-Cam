@@ -290,7 +290,7 @@ icons = []  # This list gets populated at startup
 # declared for each settings screen, rather than a single reusable
 # set); trying to reuse those few elements just made for an ugly
 # tangle of code elsewhere.
-    buttons = [
+buttons = [
     # Screen mode 0 is photo playback
         [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
         Button((0, 0, 80, 52), bg='prev', cb=imageCallback, value=-1),
@@ -371,7 +371,7 @@ icons = []  # This list gets populated at startup
      Button((240, 0, 80, 52), bg='next', cb=settingCallback, value=1),
      Button((110, 60, 100, 120), bg='quit-ok', cb=quitCallback),
      Button((0, 10, 320, 35), bg='quit')]
-    ]
+]
 
 
 # Assorted utility functions -----------------------------------------------
