@@ -134,6 +134,7 @@ def battRefresh():
         batt = '4'
     elif value < 50:
         batt = '1'
+    print batt
 
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
     global isoMode
@@ -627,7 +628,6 @@ while (True):
     # Process touchscreen input
     while True:
         battRefresh()
-        print batt
         for event in pygame.event.get():
             if (event.type is MOUSEBUTTONDOWN):
                 pos = pygame.mouse.get_pos()
