@@ -537,7 +537,7 @@ while (True):
 
     # Process touchscreen input
     while True:
-        batt = battRefresh(batt)
+        batt = battRefresh()
         print batt
         buttons = [
         # Screen mode 0 is photo playback
