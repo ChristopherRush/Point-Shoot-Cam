@@ -26,7 +26,7 @@ from pijuice import PiJuice
 
 pijuice = PiJuice(1, 0x14)
 
-batt = '5'
+
 # UI classes ---------------------------------------------------------------
 
 # Small resistive touchscreen is best suited to simple tap interactions.
@@ -128,6 +128,11 @@ class Button:
 # These are defined before globals because they're referenced by items in
 # the global buttons[] list.
 
+def battRefresh():
+    value = pijuice.status.GetChargeLevel()["data"]
+    if value > 50:
+        batt = '4'
+
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
     global isoMode
     setIsoMode((isoMode + n) % len(isoData))
@@ -178,6 +183,7 @@ def doneCallback():  # Exit settings
         settingMode = screenMode
         saveSettings()
     screenMode = 3  # Switch back to viewfinder mode
+    battRefresh()
 
 
 def imageCallback(n):  # Pass 1 (next image), -1 (prev image) or 0 (delete)
@@ -236,6 +242,7 @@ iconPath = 'icons'  # Subdirectory containing UI bitmaps (PNG format)
 saveIdx = -1  # Image index for saving (-1 = none set yet)
 loadIdx = -1  # Image index for loading
 scaled = None  # pygame Surface w/last-loaded image
+batt = '5'
 
 # To use Dropbox uploader, must have previously run the dropbox_uploader.sh
 # script to set up the app key and such.  If this was done as the normal pi
@@ -615,7 +622,7 @@ loadSettings()  # Must come last; fiddles with Button/Icon states
 
 while (True):
 
-    batt = 5
+    battRefresh()
     # Process touchscreen input
     while True:
         for event in pygame.event.get():
