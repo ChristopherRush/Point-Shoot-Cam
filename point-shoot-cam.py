@@ -630,7 +630,7 @@ while (True):
                     if b.fg == i.name:
                         b.iconFg = i
                         b.fg = None
-
+        sleep (1)
         loadSettings()  # Must come last; fiddles with Button/Icon states
         for event in pygame.event.get():
             if (event.type is MOUSEBUTTONDOWN):
