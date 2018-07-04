@@ -22,6 +22,7 @@ import time
 import yuv2rgb
 from pygame.locals import *
 from subprocess import call
+from time import sleep
 from pijuice import PiJuice
 
 pijuice = PiJuice(1, 0x14)
