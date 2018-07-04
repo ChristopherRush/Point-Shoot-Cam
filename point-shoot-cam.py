@@ -550,9 +550,9 @@ while (True):
         # (image playback, etc.), stop and refresh the screen only when
         # screenMode changes.
         if screenMode >= 3 or screenMode != screenModePrior: break
-            batt = battRefresh()
-            print batt
-            buttons = [
+    batt = battRefresh()
+    print batt
+    buttons = [
                 # Screen mode 0 is photo playback
                     [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
                     Button((0, 0, 80, 52), bg='prev', cb=imageCallback, value=-1),
@@ -633,17 +633,17 @@ while (True):
                  Button((240, 0, 80, 52), bg='next', cb=settingCallback, value=1),
                  Button((110, 60, 100, 120), bg='quit-ok', cb=quitCallback),
                  Button((0, 10, 320, 35), bg='quit')]
-            ]
-            for s in buttons:  # For each screenful of buttons...
-                for b in s:  # For each button on screen...
-                    for i in icons:  # For each icon...
-                        if b.bg == i.name:  # Compare names; match?
-                            b.iconBg = i  # Assign Icon to Button
-                            b.bg = None  # Name no longer used; allow garbage collection
-                        if b.fg == i.name:
-                            b.iconFg = i
-                            b.fg = None
-            loadSettings()  # Must come last; fiddles with Button/Icon states
+    ]
+    for s in buttons:  # For each screenful of buttons...
+        for b in s:  # For each button on screen...
+            for i in icons:  # For each icon...
+                if b.bg == i.name:  # Compare names; match?
+                    b.iconBg = i  # Assign Icon to Button
+                    b.bg = None  # Name no longer used; allow garbage collection
+                if b.fg == i.name:
+                    b.iconFg = i
+                    b.fg = None
+    loadSettings()  # Must come last; fiddles with Button/Icon states
 
 
 
