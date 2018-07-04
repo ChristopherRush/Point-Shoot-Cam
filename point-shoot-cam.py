@@ -26,7 +26,7 @@ from pijuice import PiJuice
 
 pijuice = PiJuice(1, 0x14)
 
-
+batt = 5
 # UI classes ---------------------------------------------------------------
 
 # Small resistive touchscreen is best suited to simple tap interactions.
