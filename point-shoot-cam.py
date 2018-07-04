@@ -128,13 +128,14 @@ class Button:
 # These are defined before globals because they're referenced by items in
 # the global buttons[] list.
 
-def battRefresh(batt):
+def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 50:
         batt = '4'
     elif value < 50:
         batt = '1'
-        return batt
+    return batt
+
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
     global isoMode
     setIsoMode((isoMode + n) % len(isoData))
