@@ -615,7 +615,7 @@ loadSettings()  # Must come last; fiddles with Button/Icon states
 
 while (True):
 
-batt = 5
+    batt = 5
     # Process touchscreen input
     while True:
         for event in pygame.event.get():
