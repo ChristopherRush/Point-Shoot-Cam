@@ -628,6 +628,17 @@ while (True):
     # Process touchscreen input
     while True:
         battRefresh()
+        for s in buttons:  # For each screenful of buttons...
+            for b in s:  # For each button on screen...
+                for i in icons:  # For each icon...
+                    if b.bg == i.name:  # Compare names; match?
+                        b.iconBg = i  # Assign Icon to Button
+                        b.bg = None  # Name no longer used; allow garbage collection
+                    if b.fg == i.name:
+                        b.iconFg = i
+                        b.fg = None
+
+        loadSettings()  # Must come last; fiddles with Button/Icon states
         for event in pygame.event.get():
             if (event.type is MOUSEBUTTONDOWN):
                 pos = pygame.mouse.get_pos()
