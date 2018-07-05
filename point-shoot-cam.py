@@ -133,14 +133,19 @@ def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 80 & value <= 100:
         batt = '5'
+        print "Num 5"
     elif value > 60 & value < 80:
         batt = '4'
+        print "num 4"
     elif value < 60 & value > 40:
         batt = '3'
+        print "num 3"
     elif value < 40 & value > 20:
         batt = '2'
+        print "num 2"
     elif value < 20 & value >= 0:
         batt = '1'
+        print 'num 1"'
     print value
     return batt
 
@@ -252,7 +257,6 @@ iconPath = 'icons'  # Subdirectory containing UI bitmaps (PNG format)
 saveIdx = -1  # Image index for saving (-1 = none set yet)
 loadIdx = -1  # Image index for loading
 scaled = None  # pygame Surface w/last-loaded image
-batt = '5'
 
 # To use Dropbox uploader, must have previously run the dropbox_uploader.sh
 # script to set up the app key and such.  If this was done as the normal pi
