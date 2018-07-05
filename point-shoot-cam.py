@@ -137,20 +137,14 @@ def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 80 and value <= 100:
         batt = '5'
-        print "Num 5"
     elif value > 60 and value < 80:
         batt = '4'
-        print "num 4"
     elif value < 60 and value > 40:
         batt = '3'
-        print "num 3"
     elif value < 40 and value > 20:
         batt = '2'
-        print "num 2"
     elif value < 20 and value >= 0:
         batt = '1'
-        print 'num 1"'
-    print value
     return batt
 
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
