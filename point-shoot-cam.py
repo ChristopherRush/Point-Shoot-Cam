@@ -132,6 +132,8 @@ class Button:
 
 def printit():
     print "Here"
+    t = threading.Timer(3.0, printit)
+    t.start()
 
 def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
@@ -541,8 +543,7 @@ for file in os.listdir(iconPath):
 
 loadSettings()  # Must come last; fiddles with Button/Icon states
 
-t = threading.Timer(3.0, printit)
-t.start()
+printit()
 
 # Main loop ----------------------------------------------------------------
 
