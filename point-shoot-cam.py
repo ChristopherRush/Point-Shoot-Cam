@@ -139,7 +139,7 @@ def battRefresh():
         batt = '3'
     elif value < 40 & value > 20:
         batt = '2'
-    elif value < 20 & >= 0:
+    elif value < 20 & value >= 0:
         batt = '1'
     return batt
 
