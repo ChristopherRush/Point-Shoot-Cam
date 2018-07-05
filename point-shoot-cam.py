@@ -544,6 +544,19 @@ while (True):
 
     # Process touchscreen input
     while True:
+        for event in pygame.event.get():
+            if (event.type is MOUSEBUTTONDOWN):
+                pos = pygame.mouse.get_pos()
+                print pos
+                for b in buttons[screenMode]:
+                    if b.selected(pos): break
+        # If in viewfinder or settings modes, stop processing touchscreen
+        # and refresh the display to show the live preview.  In other modes
+        # (image playback, etc.), stop and refresh the screen only when
+        # screenMode changes.
+        if screenMode >= 3 or screenMode != screenModePrior: break
+
+
         batt = battRefresh()
         print batt
         buttons = [
@@ -638,17 +651,7 @@ while (True):
                         b.iconFg = i
                         b.fg = None
         loadSettings()  # Must come last; fiddles with Button/Icon states
-        for event in pygame.event.get():
-            if (event.type is MOUSEBUTTONDOWN):
-                pos = pygame.mouse.get_pos()
-                print pos
-                for b in buttons[screenMode]:
-                    if b.selected(pos): break
-        # If in viewfinder or settings modes, stop processing touchscreen
-        # and refresh the display to show the live preview.  In other modes
-        # (image playback, etc.), stop and refresh the screen only when
-        # screenMode changes.
-        if screenMode >= 3 or screenMode != screenModePrior: break
+
 
 
 
