@@ -24,6 +24,7 @@ from pygame.locals import *
 from subprocess import call
 from time import sleep
 from pijuice import PiJuice
+from threading import Timer
 
 pijuice = PiJuice(1, 0x14)
 
@@ -546,6 +547,8 @@ for file in os.listdir(iconPath):
 
 loadSettings()  # Must come last; fiddles with Button/Icon states
 
+printit()
+
 # Main loop ----------------------------------------------------------------
 
 while (True):
@@ -638,7 +641,7 @@ while (True):
             Button((0, 10, 320, 35), bg='quit')]
         ]
 
-        printit()
+
 
         for s in buttons:  # For each screenful of buttons...
             for b in s:  # For each button on screen...
