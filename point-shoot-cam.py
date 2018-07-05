@@ -132,8 +132,8 @@ class Button:
 
 def printit():
     print "Here"
-    time = threading.Timer(3.0, printit)
-    time.start()
+    t = threading.Timer(3.0, printit)
+    t.start()
 
 def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
@@ -170,7 +170,6 @@ def fxCallback(n):  # Pass 1 (next effect) or -1 (prev effect)
 
 def quitCallback():  # Quit confirmation button
     saveSettings()
-    time.cancel()
     t.cancel()
     raise SystemExit
 
