@@ -141,6 +141,7 @@ def battRefresh():
         batt = '2'
     elif value < 20 & value >= 0:
         batt = '1'
+    print batt
     return batt
 
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
@@ -545,7 +546,7 @@ while (True):
     # Process touchscreen input
     while True:
         batt = battRefresh()
-        print batt
+        #print batt
         buttons = [
             # Screen mode 0 is photo playback
             [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
