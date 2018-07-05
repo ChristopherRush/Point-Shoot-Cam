@@ -131,7 +131,7 @@ class Button:
 
 def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
-    if value > 80 & value = <= 100:
+    if value > 80 & value <= 100:
         batt = '5'
     elif value > 60 & value < 80:
         batt = '4'
