@@ -171,6 +171,7 @@ def fxCallback(n):  # Pass 1 (next effect) or -1 (prev effect)
 def quitCallback():  # Quit confirmation button
     saveSettings()
     time.cancel()
+    t.cancel()
     raise SystemExit
 
 
