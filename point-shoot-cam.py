@@ -131,7 +131,6 @@ class Button:
 # the global buttons[] list.
 
 def printit():
-    threading.Timer(5.0, printit).start()
     print "Here"
 
 def battRefresh():
@@ -175,6 +174,7 @@ def fxCallback(n):  # Pass 1 (next effect) or -1 (prev effect)
 
 def quitCallback():  # Quit confirmation button
     saveSettings()
+    t.cancel()
     raise SystemExit
 
 
@@ -547,7 +547,8 @@ for file in os.listdir(iconPath):
 
 loadSettings()  # Must come last; fiddles with Button/Icon states
 
-printit()
+t = threading.Timer(3.0, printit)
+t.start()
 
 # Main loop ----------------------------------------------------------------
 
