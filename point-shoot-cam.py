@@ -132,7 +132,7 @@ class Button:
 
 def printit():
     print "Here"
-    threading.Timer(3.0, printit).start
+    threading.Timer(1.0, printit).start
 
 def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
