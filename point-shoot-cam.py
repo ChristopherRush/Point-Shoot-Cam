@@ -227,17 +227,18 @@ def printit():
     return buttons
 
 def battRefresh():
+    global batt
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 80 and value <= 100:
-        global batt = '5'
+        batt = '5'
     elif value > 60 and value < 80:
-        global batt = '4'
+        batt = '4'
     elif value < 60 and value > 40:
-        global batt = '3'
+        batt = '3'
     elif value < 40 and value > 20:
-        global batt = '2'
+        batt = '2'
     elif value < 20 and value >= 0:
-        global batt = '1'
+        batt = '1'
     return batt
 
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
