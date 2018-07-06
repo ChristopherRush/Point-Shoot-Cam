@@ -222,15 +222,7 @@ def printit():
 
 
 
-    for s in buttons:  # For each screenful of buttons...
-        for b in s:  # For each button on screen...
-            for i in icons:  # For each icon...
-                if b.bg == i.name:  # Compare names; match?
-                    b.iconBg = i  # Assign Icon to Button
-                    b.bg = None  # Name no longer used; allow garbage collection
-                if b.fg == i.name:
-                    b.iconFg = i
-                    b.fg = None
+
 
     return buttons
 
@@ -652,7 +644,15 @@ while (True):
     while True:
         batt = battRefresh()
         #print batt
-
+        for s in buttons:  # For each screenful of buttons...
+            for b in s:  # For each button on screen...
+                for i in icons:  # For each icon...
+                    if b.bg == i.name:  # Compare names; match?
+                        b.iconBg = i  # Assign Icon to Button
+                        b.bg = None  # Name no longer used; allow garbage collection
+                    if b.fg == i.name:
+                        b.iconFg = i
+                        b.fg = None
 
 
         for event in pygame.event.get():
