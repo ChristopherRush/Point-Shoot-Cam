@@ -131,7 +131,7 @@ class Button:
 # the global buttons[] list.
 
 def printit():
-    t = threading.Timer(120.0, printit)
+    t = threading.Timer(30.0, printit)
     t.daemon = True
     t.start()
 
@@ -229,15 +229,15 @@ def printit():
 def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 80 and value <= 100:
-        batt = '5'
+        global batt = '5'
     elif value > 60 and value < 80:
-        batt = '4'
+        global batt = '4'
     elif value < 60 and value > 40:
-        batt = '3'
+        global batt = '3'
     elif value < 40 and value > 20:
-        batt = '2'
+        global batt = '2'
     elif value < 20 and value >= 0:
-        batt = '1'
+        global batt = '1'
     return batt
 
 def isoCallback(n):  # Pass 1 (next ISO) or -1 (prev ISO)
