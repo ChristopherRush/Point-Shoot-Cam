@@ -130,15 +130,13 @@ class Button:
 # These are defined before globals because they're referenced by items in
 # the global buttons[] list.
 
-#def printit():
-#    print "Here"
-#    threading.Timer(1.0, printit).start
-#    printit()
+def printit():
+    t = threading.Timer(1.0, printit)
+    t.daemon = True
+    t.start()
 
-def democaller():
-    while True:
-        democaller()
-        time.sleep(60)
+    print "Here"
+#    printit()
 
 def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
@@ -547,8 +545,8 @@ for file in os.listdir(iconPath):
 
 loadSettings()  # Must come last; fiddles with Button/Icon states
 
-#printit()
-democaller()
+printit()
+#democaller()
 # Main loop ----------------------------------------------------------------
 
 while (True):
