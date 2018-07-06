@@ -131,7 +131,7 @@ class Button:
 # the global buttons[] list.
 
 def printit():
-    t = threading.Timer(1.0, printit)
+    t = threading.Timer(60.0, printit)
     t.daemon = True
     t.start()
 
