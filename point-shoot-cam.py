@@ -232,6 +232,8 @@ def printit():
                     b.iconFg = i
                     b.fg = None
 
+    return buttons
+
 def battRefresh():
     value = pijuice.status.GetChargeLevel()["data"]
     if value > 80 and value <= 100:
