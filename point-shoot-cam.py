@@ -630,7 +630,7 @@ for file in os.listdir(iconPath):
 
 # Assign Icons to Buttons, now that they're loaded
 batt = battRefresh()
-printit()
+buttons = printit()
 loadSettings()  # Must come last; fiddles with Button/Icon states
 
 
