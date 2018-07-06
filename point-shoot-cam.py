@@ -635,7 +635,7 @@ for file in os.listdir(iconPath):
         icons.append(Icon(file.split('.')[0]))
 
 # Assign Icons to Buttons, now that they're loaded
-
+batt = battRefresh()
 printit()
 loadSettings()  # Must come last; fiddles with Button/Icon states
 
