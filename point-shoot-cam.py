@@ -137,7 +137,7 @@ def printit():
 
     print "Here"
 #    printit()
-    return buttons = [
+    global buttons = [
     # Screen mode 0 is photo playback
         [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
         Button((0, 0, 80, 52), bg='prev', cb=imageCallback, value=-1),
