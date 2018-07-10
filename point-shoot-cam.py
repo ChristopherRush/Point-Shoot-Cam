@@ -131,13 +131,14 @@ class Button:
 # the global buttons[] list.
 
 def printit():
+    global buttons
     t = threading.Timer(30.0, printit)
     t.daemon = True
     t.start()
 
     print "Here"
 #    printit()
-    global buttons = [
+    buttons = [
     # Screen mode 0 is photo playback
         [Button((0, 188, 320, 52), bg='done', cb=doneCallback),
         Button((0, 0, 80, 52), bg='prev', cb=imageCallback, value=-1),
